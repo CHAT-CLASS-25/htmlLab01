@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
     const txtInput = document.querySelector('input');
     const btnSubmit = document.querySelector('button');
     const dvText = document.createElement('div');
@@ -33,4 +32,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Observe changes in the div's text content
     observer.observe(dvText, { childList: true });
-});
