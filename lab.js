@@ -1,37 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Set const variables for the input box, button, and the div to display the text value
     const txtInput = document.querySelector('input');
     const btnSubmit = document.querySelector('button');
     const dvText = document.createElement('div');
     const guid = 'f2b7c4e5-8b4e-4f2d-8d2c-2b6e6c1b0c6a';
-    const currTime = new Date().toLocaleTimeString();
-    dvText.id = 'dvText';
     
-    // Check to make sure elements exist
-    if (txtInput && btnSubmit) {
-        // Attach div to the DOM right after the button
-        btnSubmit.insertAdjacentElement('afterend', dvText);
-        
-        // Add click event listener to the button
-        btnSubmit.addEventListener('click', () => {
-            if (txtInput.value) {
-                dvText.innerHTML = txtInput.value;
-                // Clear the input box
-                txtInput.value = '';
-            } else {
-                console.error('Missing input value');
-            }
-        });
-    
-    } else {
+    if (!txtInput || !btnSubmit) {
         console.error('Missing input or button');
+        return;
     }
-    
-    // Add click event listener to the div to log the current time and guid to the console when the value is updated
-    dvText.addEventListener('DOMSubtreeModified', () => {
-        console.log(`Time: ${currTime} | ${guid} | ${dvText.innerHTML}`);
-    
-        // alert the user that the value has been updated
+
+    // Set up the div
+    dvText.id = 'dvText';
+    btnSubmit.insertAdjacentElement('afterend', dvText);
+
+    // Button click event
+    btnSubmit.addEventListener('click', () => {
+        const inputValue = txtInput.value.trim();
+        if (inputValue) {
+            dvText.textContent = inputValue;
+            txtInput.value = '';
+        } else {
+            console.error('Missing input value');
+        }
+    });
+
+    // Use MutationObserver for efficient change detection
+    const observer = new MutationObserver(() => {
+        const currTime = new Date().toLocaleTimeString();
+        console.log(`Time: ${currTime} | ${guid} | ${dvText.textContent}`);
         alert('Lab complete! Copy the console log and paste it into your submission.');
     });
-})
+
+    // Observe changes in the div's text content
+    observer.observe(dvText, { childList: true });
+});
