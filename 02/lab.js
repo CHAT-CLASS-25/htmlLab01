@@ -96,7 +96,7 @@ export function onDOMLoaded(){
             console.clear();
             console.log(`Time: ${currTime} | ${guid} | ${dvText.textContent}\n${output}\nTotal: ${totpts} points\n\n---------------------------------\nHTML body:\n\n${htBody}\n---------------------------------`);
 
-            // Alert the user to copy the console log
+            // Alert the user to copy the console log 
             alert("Lab complete! Copy the console log and paste it into your submission.");
         }); 
 
