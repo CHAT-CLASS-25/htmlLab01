@@ -30,12 +30,12 @@ export function onDOMLoaded(){
         });
 
         // Display alert message with current time and textbox entry when user clicks button while holding the Shift key
-        // btnSubmit.addEventListener("keydown", (event) => {
-        //     if (event.shiftKey) {
-        //         const currTime = new Date().toLocaleTimeString();
-        //         alert(`Time: ${currTime} | ${dvText.textContent}`);
-        //     }
-        // })
+        btnSubmit.addEventListener("keydown", (event) => {
+            if (event.shiftKey) {
+                const currTime = new Date().toLocaleTimeString();
+                alert(`Time: ${currTime} | ${dvText.textContent}`);
+            }
+        })
 
         // // Start observing changes to the dvText element
         // observer.observe(dvText, { childList: true });
