@@ -103,7 +103,7 @@ export function onDOMLoaded(){
         // Start observing changes to the dvText element
         observer.observe(dvText, { childList: true });
 
-    })
+    }) 
 
 }
 
