@@ -98,7 +98,7 @@ export function onDOMLoaded(){
 
             // Alert the user to copy the console log
             alert("Lab complete! Copy the console log and paste it into your submission.");
-        });
+        }); 
 
         // Start observing changes to the dvText element
         observer.observe(dvText, { childList: true });
