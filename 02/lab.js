@@ -106,7 +106,3 @@ export function onDOMLoaded(){
     }) 
 
 }
-
-export function myNewFunc(){
-    alert("My new function is ready!")
-}
